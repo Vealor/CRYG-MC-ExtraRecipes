@@ -45,19 +45,25 @@ public class ExtraRecipes extends JavaPlugin implements Listener {
 		if(result == Material.EXP_BOTTLE){
 			int redstoneCheck = 0;
 			int glassBottleCheck = 0;
+			int resultCheck = 0;
 			int other = 0;
 			for(int i=0;i<sourceItems.length;i++){
-				if(sourceItems[i].getType() == null){
-					continue;
-				}else if(sourceItems[i].getType() == Material.REDSTONE){
+				if(sourceItems[i].getType() == Material.REDSTONE){
+					p.sendMessage("redstone");
 					redstoneCheck++;
 				}else if(sourceItems[i].getType() == Material.GLASS_BOTTLE){
+					p.sendMessage("bottle");
 					glassBottleCheck++;
-				}else{
+				}else if(sourceItems[i].getType() == Material.EXP_BOTTLE){
+					p.sendMessage("result");
+					resultCheck++;
+				}else if(sourceItems[i].getType() != Material.AIR){
+					p.sendMessage(sourceItems[i].getType().toString());
 					other++;
 				}
 			}
-			if(redstoneCheck == 1 && glassBottleCheck == 1 && other == 0){
+			p.sendMessage(redstoneCheck + " " + glassBottleCheck + " "+ other);
+			if(redstoneCheck == 1 && glassBottleCheck == 1 && resultCheck == 1 && other == 0){
 				//remove exp from player
 				p.sendMessage("YOU GOT AN EXP BOTTLE");
 			}else{
