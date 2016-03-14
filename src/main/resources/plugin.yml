@@ -1,0 +1,5 @@
+name: CRYG-MC-ExtraRecipes
+main: com.crygaming.extrarecipes.ExtraRecipes
+author: Jakob Roberts
+version: 0.1
+description: Adds extra recipes that Minecraft should have.
